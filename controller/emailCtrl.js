@@ -8,8 +8,13 @@ const sendEmail = asyncHandler(async (md, req, res) => {
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
+<<<<<<< HEAD
       user: "navdeepdahiya753@gmail.com", // generated ethereal user
       pass: "lkqrircnpuabzdqo", // generated ethereal password
+=======
+      user: "your email", 
+      pass: "your key", 
+>>>>>>> ac75a5d3c1f970da2d1de59137fffe9bd590a1c4
     },
   });
   // send mail with defined transport object
