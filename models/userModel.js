@@ -46,12 +46,6 @@ var userSchema = new mongoose.Schema(
     passwordChangedAt: Date,
     passwordResetToken: String,
     passwordResetExpires: Date,
-    shippingAddress: {
-      type: String,
-    },
-    billingAddress: {
-      type: String,
-    },
   },
   {
     timestamps: true,
