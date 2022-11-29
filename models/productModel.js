@@ -56,6 +56,7 @@ var productSchema = new mongoose.Schema(
       type: String,
       default: 0,
     },
+    images: [],
   },
   { timestamps: true }
 );
