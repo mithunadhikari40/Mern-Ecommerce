@@ -39,11 +39,8 @@ var blogSchema = new mongoose.Schema(
         ref: "User",
       },
     ],
-    image: {
-      type: String,
-      default:
-        "https://www.shutterstock.com/image-photo/bloggingblog-concepts-ideas-white-worktable-600w-1029506242.jpg",
-    },
+
+    image: [],
     author: {
       type: String,
       default: "Admin",
