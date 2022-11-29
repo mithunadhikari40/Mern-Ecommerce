@@ -6,9 +6,11 @@ const { generateRefreshToken } = require("../config/refreshtoken");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 const sendEmail = require("./emailCtrl");
+
 // Create a User
 const createUser = asyncHandler(async (req, res) => {
   const email = req.body.email;
+
   const findUser = await User.findOne({ email: email });
   if (!findUser) {
     // Create a new User
