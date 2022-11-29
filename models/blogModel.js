@@ -40,11 +40,11 @@ var blogSchema = new mongoose.Schema(
       },
     ],
 
-    image: [],
     author: {
       type: String,
       default: "Admin",
     },
+    images: [],
   },
   {
     toJSON: {

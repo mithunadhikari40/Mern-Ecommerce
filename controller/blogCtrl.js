@@ -157,7 +157,8 @@ const disliketheBlog = asyncHandler(async (req, res) => {
     res.json(blog);
   }
 });
-const uploadBlogImages = asyncHandler(async (req, res, next) => {
+
+const uploadImages = asyncHandler(async (req, res) => {
   const { id } = req.params;
   validateMongoDbId(id);
   try {
@@ -167,16 +168,20 @@ const uploadBlogImages = asyncHandler(async (req, res, next) => {
     for (const file of files) {
       const { path } = file;
       const newpath = await uploader(path);
+      console.log(newpath);
       urls.push(newpath);
+      fs.unlinkSync(path);
     }
     const findBlog = await Blog.findByIdAndUpdate(
       id,
       {
-        images: urls.map((i) => {
-          return i;
+        images: urls.map((file) => {
+          return file;
         }),
       },
-      { new: true }
+      {
+        new: true,
+      }
     );
     res.json(findBlog);
   } catch (error) {
@@ -192,5 +197,5 @@ module.exports = {
   deleteBlog,
   liketheBlog,
   disliketheBlog,
-  uploadBlogImages,
+  uploadImages,
 };
